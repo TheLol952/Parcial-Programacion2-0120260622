@@ -14,12 +14,12 @@ public class Main {
             String nombre = leerNombre(scanner);
             double ventasMes = leerVentas(scanner);
 
-            // Todo vendedor utiliza inicialmente la comision estandar.
-            Vendedor vendedor = new Vendedor(nombre, ventasMes, new ComisionEstandar());
+            // En esta funcionalidad, el vendedor inicia con la comision personalizada.
+            Vendedor vendedor = new Vendedor(nombre, ventasMes, new ComisionPersonalizada(nombre));
 
             int tipoComision = leerTipoComision(scanner);
-            if (tipoComision == 2) {
-                vendedor.cambiarEstrategia(new ComisionPersonalizada(nombre));
+            if (tipoComision == 1) {
+                vendedor.cambiarEstrategia(new ComisionEstandar());
             }
 
             System.out.println("\n=== Detalle del vendedor ===");
