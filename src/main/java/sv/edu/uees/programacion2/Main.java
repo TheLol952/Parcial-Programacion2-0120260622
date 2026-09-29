@@ -2,6 +2,7 @@ package sv.edu.uees.programacion2;
 
 import sv.edu.uees.programacion2.comision.ComisionEstandar;
 import sv.edu.uees.programacion2.comision.ComisionPersonalizada;
+import sv.edu.uees.programacion2.comision.EstrategiaComision;
 import sv.edu.uees.programacion2.empleado.Vendedor;
 
 import java.util.Scanner;
@@ -15,7 +16,8 @@ public class Main {
             double ventasMes = leerVentas(scanner);
 
             // Todo vendedor utiliza inicialmente la comision estandar.
-            Vendedor vendedor = new Vendedor(nombre, ventasMes, new ComisionEstandar());
+            EstrategiaComision estrategiaInicial = new ComisionEstandar();
+            Vendedor vendedor = new Vendedor(nombre, ventasMes, estrategiaInicial);
 
             int tipoComision = leerTipoComision(scanner);
             if (tipoComision == 2) {
